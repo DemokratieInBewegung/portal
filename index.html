@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="de-DE">
+<head>
+	<meta charset="UTF-8">
+	<link rel="pingback" href="https://bewegung.jetzt/xmlrpc.php">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Portal - DEMOKRATIE IN BEWEGUNG</title>
+
+  <link rel="icon" href="icons/logo.png" />
+  <link rel="apple-touch-icon-precomposed" href="icons/logo.png" />
+  <meta name="msapplication-TileImage" content="icons/thumb.png" />
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/g/bootstrap@3.3.7(css/bootstrap.min.css)">
+  <link rel='stylesheet' href="portal.css" type="text/css"/>
+  <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Rubik%3Aregular%2Citalicver=4.8.5" type="text/css"/>
+  
+  <style type="text/css">
+    
+  </style>
+  	
+</head>
+<body>
+    
+    <!-- Modal aboutmp-->
+    <div id="aboutmp" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+    
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Was ist der Marktplatz der Ideen?</h4>
+          </div>
+          <div class="modal-body">
+            <p>Der Marktplatz der Ideen - oder kurz MP - ist als Forum in erster Linie dafür gedacht, Ideen für neue Initiativen vorzustellen und zu besprechen, um diese dann in der Abstimmungsplattform zu veröffentlichen.</p>
+            <p>Aber auch allgemeine Diskussionen rund um Politik und Partei können hier geführt werden.</p>
+            <p>Der MP ist kein basisdemokratisches Instrument. Umfragen, die in Diskussions-Threads erfolgen, sind nicht bindend. Allerdings stellen die Diskussionen und Abstimmungen Anregungen für die aktive Politik und Innerparteiliches dar. DiB-Aktive können sich somit Input von den Marktplatz-Teilnehmer*innen einholen.</p>
+            <p>Über private Nachrichten (PN) können MP-Nutzer*innen miteinander in geschlossenen Threads kommunizieren.</p>
+          </div>
+        </div>
+    
+      </div>
+    </div>
+    
+    <!-- Modal firststeps-->
+    <div id="firststeps" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+    
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Erste Schritte für Neuankömmlinge</h4>
+          </div>
+          <div class="modal-body">
+            <p>Auf dem Marktplatz der Ideen (MP) gibt es Kategorien, die öffentlich zugänglich sind und Kategorien, die nur nach Anmeldung (nach vorheriger Registrierung) erreicht werden können. Auch gibt es Themenbereiche die nur für Mitglieder oder Mitarbeiter*innen in bestimmten Arbeitsgruppen sichtbar sind.</p>
+            <p><strong>Wenn du dich registriert hast, gibt es folgende Dinge, die du wissen solltest:</strong></p>
+            <p>Auf dem MP gibt es ein Vertrauensstufen-Modell. Das bedeutet: Wenn du frisch dabei bist, kannst du noch keine eigenen Beiträge schreiben. Wenn du ein paar Tage vorbeischaust und ein paar Beiträge gelesen hast, erhältst du die Möglichkeit, selbst Beiträge zu verfassen, jedoch nur in begrenzter Anzahl. Du kannst auch anfänglich nicht in jedem Thread antworten.</p>
+            <p>Es meldet sich bei dir ein Bot (mit dem Namen "Discobot"), von dem du grundlegende Fertigkeiten (Kenntlichmachung von Zitaten, Verwendung von Emoji, Verwendung der Suche und vieles mehr) schnell und einfach erlernen kannst.</p>
+            <p>In der Unterkategorie <a target="_blank" href="https://marktplatz.bewegung.jetzt/c/informationen-und-aktuelles/anleitungen">Anleitungen</a> findest du weitere nützliche Tipps und Hilfestellungen. Wenn du eine Frage hast, schaue bitte erst, ob du nicht dort schon eine Antwort dazu findest, bevor du einen neuen Thread zu Klärung deines Problems erstellst.</p>
+          </div>
+        </div>
+    
+      </div>
+    </div>
+    
+    <div style="font-size: 20px;height:50px;padding:10px;color:white;background-image:linear-gradient(90deg, #274f9e, #eb5c4a);">DEMOKRATIE IN BEWEGUNG - Portal</div>
+    <div style="padding:10px">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+            <div class="panel-group">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h5 class="panel-title">
+                            <a id="ainfo" class="collapsable" data-toggle="collapse" href="#info" onclick="if ($(this).hasClass('collapsed')) setCookie('hideInfo',''); else setCookie('hideInfo','true');"><i class="fa fa-info-circle" aria-hidden="true"></i> Information</a>
+                        </h5>
+                    </div>
+                    <div id="info" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <ul class="pul">
+                                <li><i class="fa fa-bullhorn" aria-hidden="true"></i> aktuelle Aktionen:
+                                    <ul>
+                                        <i><li id="appeal"></li></i>
+                                    </ul>
+                                </li>
+                                <li><i class="fa fa-sitemap" aria-hidden="true"></i> Parteistruktur:
+                                    <ul>
+                                        <li><a target="_blank" href="https://bewegung.jetzt/partei/#vorstand">allg. Organisationsstruktur</a></li>
+                                        <li><a target="_blank" href="https://marktplatz.bewegung.jetzt/groups">Arbeitsgruppen</a></li>
+                                    </ul>
+                                </li>
+                                <li><i class="fa fa-newspaper-o" aria-hidden="true"></i> Newsletter:
+                                    <ul>
+                                        <li><a target="_blank" href="https://iris.bewegung.jetzt/">Iris (wöchentlich)</a></li>
+                                        <li><a target="_blank" href="https://harriet.bewegung.jetzt/">Harriet (Frauen*)</a></li>
+                                    </ul>
+                                </li>
+                            </ul>				
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-xs-12 col-sm-4">
+            <div class="panel-group">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h5 class="panel-title">
+                            <a id="amp" class="collapsable" data-toggle="collapse" href="#mp" onclick="if ($(this).hasClass('collapsed')) setCookie('hideMp',''); else setCookie('hideMp','true');"><i class="fa fa-comments" aria-hidden="true"></i> Diskussion / Austausch</a>
+                        </h5>
+                    </div>
+                    <div id="mp" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <ul class="pul">
+                                <li><a target="_blank" href="https://marktplatz.bewegung.jetzt"><img width="20px" src="icons/mp.png" alt="MP"/> Marktplatz der Ideen (Forum)</a></li>
+                                <li><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Wichtig zu wissen:
+                                    <ul>
+                                        <li><a href="#aboutmp" data-toggle="modal">Was ist der Marktplatz der Ideen?</a></li>
+                                        <li><a href="#firststeps" data-toggle="modal">Erste Schritte für Neuankömmlinge</a></li>
+                                        <li><a target="_blank" href="https://marktplatz.bewegung.jetzt/faq">Verhaltenskodex im Forum</a></li>
+                                    </ul>
+                                </li>
+                                <li><a target="_blank" href="https://bewegung.jetzt/in-deiner-naehe/"><i class="fa fa-calendar" aria-hidden="true"></i> Termine für Stammtische u.a.</a></li>
+                                <li><a target="_blank" href="https://marktplatz.bewegung.jetzt/c/initiativen"><i class="fa fa-th" aria-hidden="true"></i> Schnelleinstieg: Idee für neue Initiative einbringen</a></li>
+                            </ul>				
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-xs-12 col-sm-4">
+            <div class="panel-group">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h5 class="panel-title">
+                            <a id="ainitiativen" class="collapsable" data-toggle="collapse" href="#initiativen" onclick="if ($(this).hasClass('collapsed')) setCookie('hideInitiativen',''); else setCookie('hideInitiativen','true');"><i class="fa fa-hand-paper-o" aria-hidden="true"></i> Abstimmen / Initiativen</a>
+                        </h5>
+                    </div>
+                    <div id="initiativen" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <ul class="pul">
+                                <li><a target="_blank" href="https://abstimmen.bewegung.jetzt"><img width="20px" src="icons/plenum.png" alt="Plenum"/> Plenum (Alle Initiativen)</a></li>
+                                <li><i class="fa fa-hourglass-start" aria-hidden="true"></i> Initiativen in neuem Status:
+                                    <ul>
+                                        <li><a target="_blank" href="https://abstimmen.bewegung.jetzt/?f=s" onclick="setCookie('supportlastvisit',getCookie('support'));" style="color:#EB9316;"><nobr id="s">sucht Unterstützung (0)</nobr></a></li>
+                                        <li><a target="_blank" href="https://abstimmen.bewegung.jetzt/?f=d" onclick="setCookie('discusslastvisit',getCookie('discuss'));" style="color:#01549B;"><nobr id="d">in Diskussion (0)</nobr></a></li>
+                                        <li><a target="_blank" href="https://abstimmen.bewegung.jetzt/?f=v" onclick="setCookie('votelastvisit',getCookie('vote'));" style="color:#AE2568;"><nobr id="v">Abstimmung (0)</nobr></a></li>
+                                    </ul>
+                                </li>
+                                <li><a target="_blank" href="https://bewegung.jetzt/2017/04/03/so-funktioniert-das-initiativprinzip/"><i class="fa fa-question-circle" aria-hidden="true"></i> Initiativprinzip erklärt</a></li>
+                                <li><a target="_blank" href="https://marktplatz.bewegung.jetzt/c/forum-und-austausch/sys-konsens"><img width="20px" src="icons/konsensieren-eu.png" alt="SK"/> Systemisches Konsensieren (benötigt MP-Login)</a></li>
+                            </ul>				
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        </div>
+        <div class="row">
+        
+        <div class="col-xs-12 col-sm-4">
+            <div class="panel-group">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h5 class="panel-title">
+                            <a id="atools" class="collapsable collapsed" data-toggle="collapse" href="#tools" onclick="if ($(this).hasClass('collapsed')) setCookie('showTools','true'); else setCookie('showTools','');"><i class="fa fa-users" aria-hidden="true"></i> Tools für Zusammenarbeit</a>
+                        </h5>
+                    </div>
+                    <div id="tools" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <ul class="pul">
+                                <li><a target="_blank" href="https://app.holaspirit.com/login"><img width="20px" src="icons/holaSpirit.png" alt="holaSpirit"/> HolaSpirit (Holokratie-Tool)</a></li>
+                                <li><a target="_blank" href="https://chat.bewegung.jetzt/login"><img width="20px" src="icons/mattermost.png" alt="Mattermost"/> Mattermost (Chat)</a></li>
+                                <li><i class="fa fa-trello" aria-hidden="true"></i> Wekan-Boards (Issue-Tracking):
+                                    <ul>
+                                        <li><a target="_blank" href="https://wekan.bewegung.jetzt/b/vxYn5NDMsu9iR6Wsp/backoffice-and-tooling">Backoffice&amp;Tooling</a></li>
+                                        <li><a target="_blank" href="https://wekan.bewegung.jetzt/b/uQJxjrioxz2EG9nLi/initiativ-tool">Plenum-Entwicklung</a></li>
+                                    </ul>
+                                </li>
+                                <li><img width="20px" src="icons/zoom.png" alt="Zoom"/> Zoom (Calls / Video-Chat) Räume:
+                                    <ul>
+                                        <li><a target="_blank" href="https://zoom.us/j/5564188890"><nobr>DiB1: 556-418-8890</nobr></a> (Parteimitglieder)</li>
+                                        <li><a target="_blank" href="https://zoom.us/j/9464344297"><nobr>DiB2: 946-434-4297</nobr></a> (Mitgl.+Beweger*innen)</li>
+                                        <li><a target="_blank" href="https://zoom.us/j/6125519791"><nobr>DiB3: 612-551-9791</nobr></a> (Teams Bund)</li>
+                                    </ul>
+                                </li>
+                                <li><a target="_blank" href="https://wolke.bewegung.jetzt/login"><i class="fa fa-cloud" aria-hidden="true"></i> Wolke (Cloud/Kalender)</a></li>
+                                <li><a target="_blank" href="https://marktplatz.bewegung.jetzt/t/teams-die-arbeitstruktur-en-des-bundesverbandes/9058"><i class="fa fa-address-book" aria-hidden="true"></i> Ansprechpartner Überblick</a></li>
+                            </ul>				
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-xs-12 col-sm-4">
+            <div class="panel-group">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h5 class="panel-title">
+                            <a id="amgmt" class="collapsable collapsed" data-toggle="collapse" href="#mgmt" onclick="if ($(this).hasClass('collapsed')) setCookie('showMgmt','true'); else setCookie('showMgmt','');"><i class="fa fa-tty" aria-hidden="true"></i> Management-Tools</a>
+                        </h5>
+                    </div>
+                    <div id="mgmt" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <ul class="pul">
+                                <li><i class="fa fa-user-md" aria-hidden="true"></i> Support:
+                                    <ul>
+                                        <li><a target="_blank" href="https://zammad.bewegung.jetzt/#login">Zammad</a></li>                                        
+                                        <li><a target="_blank" href="https://www.zoho.eu/">Zoho</a></li>
+                                    </ul>
+                                </li>
+                                <li><i class="fa fa-envelope-o" aria-hidden="true"></i> E-Mail:
+                                    <ul>
+                                        <li><a target="_blank" href="https://mail.bewegung.jetzt/">E-Mail Client</a></li>
+                                        <li><a target="_blank" href="https://mail.bewegung.jetzt/SOGo/">SOGo Groupware</a></li>
+                                        <li><a target="_blank" href="https://mautic.bewegung.jetzt/s/login">Mautic (E-Mail Automatisierung)</a></li>
+                                        <li><a target="_blank" href="https://app.sparkpost.com/auth">Sparkpost</a></li>
+                                    </ul>
+                                </li>
+                                <li><a target="_blank" href="https://mitgliedsantrag.bewegung.jetzt/account/login/?next=/applications/inbox"><i class="fa fa-user-plus" aria-hidden="true"></i> Mitgliedsanträge</a></li>
+                                <li><a target="_blank" href="https://secure.fundraisingbox.com/login"><img width="20px" src="icons/fundraisingbox.png" alt="FundraisingBox"/> FundraisingBox</a></li>
+                                <li><i class="fa fa-wrench" aria-hidden="true"></i> Sonstige Tools:
+                                    <ul>
+                                        <li><a target="_blank" href="https://wahlchecker.bewegung.jetzt/">Wahlchecker</a></li>
+                                        <li><a target="_blank" href="https://backoffice.bewegung.jetzt/">Backoffice-Tools</a></li>
+                                    </ul>
+                                </li>
+                            </ul>				
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-xs-12 col-sm-4">
+            <div class="panel-group">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h5 class="panel-title">
+                            <a id="ait" class="collapsable collapsed" data-toggle="collapse" href="#it" onclick="if ($(this).hasClass('collapsed')) setCookie('showIt','true'); else setCookie('showIt','');"><i class="fa fa-server" aria-hidden="true"></i> IT-Zugänge</a>
+                        </h5>
+                    </div>
+                    <div id="it" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <ul class="pul">
+                                <li><a target="_blank" href="https://status.bewegung.jetzt/"><img id="cachet" width="20px" src="icons/cachet.png" alt="Cache"/> Cachet System-Status</a></li>
+                                <li><a target="_blank" href="https://bewegung.jetzt/wp-login.php"><i class="fa fa-wordpress" aria-hidden="true"></i> WordPress</a></li>
+                                <li><a target="_blank" href="https://piwik.bewegung.jetzt/"><img width="20px" src="icons/matomo.png" alt="Matomo"/> Matomo (Piwik Webanalytik)</a></li>
+                                <li><a target="_blank" href="https://admin.gandi.net/domain/4534869e-5c21-11e7-a7cd-00163e61ef31/bewegung.jetzt/dns"><img height="20px" src="icons/gandi.png" alt="Gandi"/> Gandi (Domain-Verwaltung)</a></li>
+                            </ul>				
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+      </div>
+    </div>
+    <script>
+      function domContentLoaded() {
+        var extjs = document.createElement("script");
+        extjs.src = "https://cdn.jsdelivr.net/g/jquery@2.1.1,bootstrap@3.3.7";
+        document.body.appendChild(extjs);
+        var js = document.createElement("script");
+        js.src = "portal.js";
+        document.body.appendChild(js);
+      }
+      
+      function jQueryOnLoad(){
+          if (jQuery(window).width() < 768){  
+              jQuery('.panel-collapse').removeClass('in');
+              jQuery('.collapsable').addClass('collapsed');
+          } else {
+              if (getCookie("hideInfo") != "") {
+                  jQuery("#info").removeClass("in");
+                  jQuery("#ainfo").addClass("collapsed");
+              }
+              if (getCookie("hideMp") != "") {
+                  jQuery("#mp").removeClass("in");
+                  jQuery("#amp").addClass("collapsed");
+              }
+              if (getCookie("hideInitiativen") != "") {
+                  jQuery("#initiativen").removeClass("in");
+                  jQuery("#ainitiativen").addClass("collapsed");
+              }
+              if (getCookie("showTools") != "") {
+                  jQuery("#tools").addClass("in");
+                  jQuery("#atools").removeClass("collapsed");
+              }
+              if (getCookie("showMgmt") != "") {
+                  jQuery("#mgmt").addClass("in");
+                  jQuery("#amgmt").removeClass("collapsed");
+              }
+              if (getCookie("showIt") != "") {
+                  jQuery("#it").addClass("in");
+                  jQuery("#ait").removeClass("collapsed");
+              }
+          }
+          cachetStatus();
+          appeal();
+          plenum();
+      };
+      if (window.addEventListener) window.addEventListener("DOMContentLoaded", domContentLoaded, false);
+      else if (window.attachEvent) window.attachEvent("onDOMContentLoaded", domContentLoaded);
+      else window.onDOMContentLoaded = domContentLoaded;
+      
+      if (window.addEventListener) window.addEventListener("load", jQueryOnLoad, false);
+      else if (window.attachEvent) window.attachEvent("onload", jQueryOnLoad);
+      else window.onload = jQueryOnLoad;
+    </script>
+					
+</body>
+</html>
