@@ -51,6 +51,7 @@ function plenum() {
   }
   $.ajax({
     url: "https://abstimmen.bewegung.jetzt/?f=s",
+    headers: {'X-Requested-With': 'XMLHttpRequest'},
     beforeSend: function(xhr){
         xhr.setRequestHeader('Accept', 'application/json');
     },
@@ -66,6 +67,7 @@ function plenum() {
   
   $.ajax({
     url: "https://abstimmen.bewegung.jetzt/?f=d",
+    headers: {'X-Requested-With': 'XMLHttpRequest'},
     beforeSend: function(xhr){
         xhr.setRequestHeader('Accept', 'application/json');
     },
@@ -83,6 +85,7 @@ function plenum() {
   
   $.ajax({
     url: "https://abstimmen.bewegung.jetzt/?f=v",
+    headers: {'X-Requested-With': 'XMLHttpRequest'},
     beforeSend: function(xhr){
         xhr.setRequestHeader('Accept', 'application/json');
     },
