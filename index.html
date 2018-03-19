@@ -22,6 +22,26 @@
 </head>
 <body>
     
+    <!-- Modal feedback-->
+    <div id="feedback" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+    
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Info/Kontakt</h4>
+          </div>
+          <div class="modal-body">
+            <p>Dies ist die erste Version der Portalseite. Einige Links werden sich noch ändern, wenn die Seite in die allgemeine Homepage von DiB integriert ist.</p>
+            <p>Falls du einen Fehler melden willst oder Ideen hast, schreibe eine PN an @MichaelVoss auf dem Marktplatz der Ideen oder lege einen Issue in <a target="_blank" href="https://github.com/DemokratieInBewegung/portal/issues">GitHub</a> an.</p>
+            <p>Die Anzahl der Initiativen in neuem Status ergibt sich aus dem letzten Tag, an dem du diese Portalseite besucht hast. Klickst du auf einen Status wird der Zähler zurückgesetzt, sodass beim nächsten Aufruf dieser Seite der entsprechende Zähler auf 0 steht (sofern nicht neue Initiativen in den Status gewechselt sind).</p>
+            <p>Für die korrekte Ausführung der Seite muss das Setzen von Cookies erlaubt sein.</p>
+          </div>
+        </div>
+    
+      </div>
+    </div>
+    
     <!-- Modal aboutmp-->
     <div id="aboutmp" class="modal fade" role="dialog">
       <div class="modal-dialog">
@@ -79,7 +99,7 @@
       </div>
     </div>
     
-    <div style="font-size: 20px;height:50px;padding:10px;color:white;background-image:linear-gradient(90deg, #274f9e, #eb5c4a);">DEMOKRATIE IN BEWEGUNG - Portal</div>
+    <div style="font-size: 20px;height:50px;padding:10px;color:white;background-image:linear-gradient(90deg, #274f9e, #eb5c4a);">DEMOKRATIE IN BEWEGUNG - Portal<a style="float:right" class="btn btn-default btn-sm" href="#feedback" data-toggle="modal">Info/Kontakt</a></div>
     <div style="padding:10px">
       <div class="row">
         <div class="col-xs-12 col-sm-4">
@@ -128,7 +148,7 @@
                     <div id="mp" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <ul class="pul">
-                                <li><a target="_blank" href="https://marktplatz.bewegung.jetzt"><img width="20px" src="icons/mp.png" alt="MP"/> Marktplatz der Ideen (Forum)</a></li>
+                                <li><a target="_blank" href="https://marktplatz.bewegung.jetzt"><img width="20px" src="icons/mp.png" alt="MP"/> Marktplatz der Ideen (MP)</a></li>
                                 <li><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Wichtig zu wissen:
                                     <ul>
                                         <li><a href="#aboutmp" data-toggle="modal">Was ist der Marktplatz der Ideen?</a></li>
@@ -192,13 +212,13 @@
                                 <li><a target="_blank" href="https://app.holaspirit.com/login"><img width="20px" src="icons/holaSpirit.png" alt="holaSpirit"/> HolaSpirit (Holokratie-Tool)</a></li>
                                 <li><a href="#contacts" data-toggle="modal"><i class="fa fa-address-book" aria-hidden="true"></i> Ansprechpartner Überblick</a></li>
                                 <li><a target="_blank" href="https://chat.bewegung.jetzt/login"><img width="20px" src="icons/mattermost.png" alt="Mattermost"/> Mattermost (Chat)</a></li>
-                                <li id="wekan"><a target="_blank" href="https://wekan.bewegung.jetzt/sign-in"><i class="fa fa-trello" aria-hidden="true"></i> Wekan-Boards (Issue-Tracking)</a></li>
                                 <li><img width="20px" src="icons/zoom.png" alt="Zoom"/> Zoom (Calls / Video-Chat) Räume:
                                     <ul id="zoom">
                                         <li><i>Du musst Beweger*in und aktuell am MP angemeldet sein, um das sehen zu können.</i></li>
                                     </ul>
                                 </li>
                                 <li><a target="_blank" href="https://wolke.bewegung.jetzt/login"><i class="fa fa-cloud" aria-hidden="true"></i> Wolke (Cloud/Kalender)</a></li>
+                                <li id="wekan"><a target="_blank" href="https://wekan.bewegung.jetzt/sign-in"><i class="fa fa-trello" aria-hidden="true"></i> Wekan-Boards (Issue-Tracking)</a></li>
                             </ul>				
                         </div>
                     </div>
@@ -260,6 +280,7 @@
                                 <li><a target="_blank" href="https://status.bewegung.jetzt/"><img id="cachet" width="20px" src="icons/cachet.png" alt="Cache"/> Cachet System-Status</a></li>
                                 <li><a target="_blank" href="https://bewegung.jetzt/wp-login.php"><i class="fa fa-wordpress" aria-hidden="true"></i> WordPress</a></li>
                                 <li><a target="_blank" href="https://piwik.bewegung.jetzt/"><img width="20px" src="icons/matomo.png" alt="Matomo"/> Matomo (Piwik Webanalytik)</a></li>
+                                <li><a target="_blank" href="https://github.com/DemokratieInBewegung"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a></li>
                                 <li><a target="_blank" href="https://admin.gandi.net/domain/4534869e-5c21-11e7-a7cd-00163e61ef31/bewegung.jetzt/dns"><img height="20px" src="icons/gandi.png" alt="Gandi"/> Gandi (Domain-Verwaltung)</a></li>
                             </ul>				
                         </div>
@@ -316,7 +337,7 @@
           holaSpirit();
           getMPUserInfoAndDo(function() {
             zoom();
-            wekan();
+            //wekan();
           });
       };
       if (window.addEventListener) window.addEventListener("DOMContentLoaded", domContentLoaded, false);
