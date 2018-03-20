@@ -41,7 +41,21 @@ function appeal() {
   });
 }
 
+document.getElementById("support").addEventListener("click", function(){
+    setCookie('supportlastvisit',getCookie('support'));
+    document.getElementById('s').innerHTML = 'sucht Unterstützung (0)';
+});
+document.getElementById("discuss").addEventListener("click", function(){
+    setCookie('discusslastvisit',getCookie('discuss'));
+    document.getElementById('d').innerHTML = 'in Diskussion (0)';
+});
+document.getElementById("vote").addEventListener("click", function(){
+    setCookie('votelastvisit',getCookie('vote'));
+    document.getElementById('v').innerHTML = 'Abstimmung (0)';
+});
+
 function plenum() {
+  /* auskommentiert, damit keine neuen Initiativen verpasst werden, wenn der User mal einen Tag nicht auf die neuen Initiativen schaut; User muss klicken, um Zähler auf 0 zu setzen
   var lastvisit = getCookie("lastvisit");
   if (lastvisit == "" || Number(lastvisit)+86400000 < new Date().getTime()) {
       setCookie("lastvisit",new Date().getTime());
@@ -49,6 +63,7 @@ function plenum() {
       setCookie("discusslastvisit",getCookie("discuss"));
       setCookie("votelastvisit",getCookie("vote"));
   }
+  */
   $.ajax({
     url: "https://abstimmen.bewegung.jetzt/?f=s",
     headers: {'X-Requested-With': 'XMLHttpRequest'},
@@ -108,7 +123,6 @@ function getInitiatives(status,arr) {
     var newids = 0;
     var c = ",";
     var clast = getCookie(status+"lastvisit");
-    console.log(clast);
     for (x = 0; x < arr.length; x++) {
         id = arr[x].id;
         c += id + ",";

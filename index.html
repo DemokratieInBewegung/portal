@@ -10,14 +10,11 @@
   <link rel="apple-touch-icon-precomposed" href="icons/logo.png" />
   <meta name="msapplication-TileImage" content="icons/thumb.png" />
   
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/g/bootstrap@3.3.7(css/bootstrap.min.css)">
   <link rel='stylesheet' href="portal.css" type="text/css"/>
   <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Rubik%3Aregular%2Citalicver=4.8.5" type="text/css"/>
-  
-  <style type="text/css">
-    
-  </style>
+  <!-- <script src="https://portal.bewegung.jetzt/cookieconsent/cookieconsent.js"></script> -->
   	
 </head>
 <body>
@@ -34,7 +31,7 @@
           <div class="modal-body">
             <p>Dies ist die erste Version der Portalseite. Einige Links werden sich noch ändern, wenn die Seite in die allgemeine Homepage von DiB integriert ist.</p>
             <p>Falls du einen Fehler melden willst oder Ideen hast, schreibe eine PN an @MichaelVoss auf dem Marktplatz der Ideen oder lege einen Issue in <a target="_blank" href="https://github.com/DemokratieInBewegung/portal/issues">GitHub</a> an.</p>
-            <p>Die Anzahl der Initiativen in neuem Status ergibt sich aus dem letzten Tag, an dem du diese Portalseite besucht hast. Klickst du auf einen Status wird der Zähler zurückgesetzt, sodass beim nächsten Aufruf dieser Seite der entsprechende Zähler auf 0 steht (sofern nicht neue Initiativen in den Status gewechselt sind).</p>
+            <p>Für die Anzahl der Initiativen in neuem Status existiert folgende Logik: Klickst du auf einen Status, wird der entsprechende Zähler zurückgesetzt. Es werden dann die nach dem letzten Klick in diesen Status gewechselten Initiativen gezählt.</p>
             <p>Für die korrekte Ausführung der Seite muss das Setzen von Cookies erlaubt sein.</p>
           </div>
         </div>
@@ -179,9 +176,9 @@
                                 <li><a target="_blank" href="https://abstimmen.bewegung.jetzt"><img width="20px" src="icons/plenum.png" alt="Plenum"/> Plenum (Alle Initiativen)</a></li>
                                 <li><i class="fa fa-hourglass-start" aria-hidden="true"></i> Initiativen in neuem Status:
                                     <ul>
-                                        <li><a target="_blank" href="https://abstimmen.bewegung.jetzt/?f=s" onclick="setCookie('supportlastvisit',getCookie('support'));" style="color:#EB9316;"><nobr id="s">sucht Unterstützung (0)</nobr></a></li>
-                                        <li><a target="_blank" href="https://abstimmen.bewegung.jetzt/?f=d" onclick="setCookie('discusslastvisit',getCookie('discuss'));" style="color:#01549B;"><nobr id="d">in Diskussion (0)</nobr></a></li>
-                                        <li><a target="_blank" href="https://abstimmen.bewegung.jetzt/?f=v" onclick="setCookie('votelastvisit',getCookie('vote'));" style="color:#AE2568;"><nobr id="v">Abstimmung (0)</nobr></a></li>
+                                        <li><a id="support" target="_blank" href="https://abstimmen.bewegung.jetzt/?f=s" style="color:#EB9316;"><nobr id="s">sucht Unterstützung (0)</nobr></a></li>
+                                        <li><a id="discuss" target="_blank" href="https://abstimmen.bewegung.jetzt/?f=d" style="color:#01549B;"><nobr id="d">in Diskussion (0)</nobr></a></li>
+                                        <li><a id="vote" target="_blank" href="https://abstimmen.bewegung.jetzt/?f=v" style="color:#AE2568;"><nobr id="v">Abstimmung (0)</nobr></a></li>
                                     </ul>
                                 </li>
                                 <li><a target="_blank" href="https://bewegung.jetzt/2017/04/03/so-funktioniert-das-initiativprinzip/"><i class="fa fa-question-circle" aria-hidden="true"></i> Initiativprinzip erklärt</a></li>
