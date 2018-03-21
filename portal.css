@@ -77,3 +77,10 @@ li > ul {
   margin-bottom: 0;
 }
 
+
+#btnSupport {
+  position: absolute;
+  bottom: 0;
+  right: 3px;
+  border-radius: 0;
+}

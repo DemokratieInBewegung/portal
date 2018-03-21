@@ -283,14 +283,18 @@
         
       </div>
     </div>
+    <button id="btnSupport" class="btn btn-lg btn-info">IT-Support kon­tak­tie­ren</button>
     <script>
+      function _load_js(path, id) {
+        var elem = document.createElement("script");
+        elem.src = path;
+        elem.id = id;
+        document.body.appendChild(elem);
+        return elem
+      }
       function domContentLoaded() {
-        var extjs = document.createElement("script");
-        extjs.src = "https://cdn.jsdelivr.net/g/jquery@2.1.1,bootstrap@3.3.7";
-        document.body.appendChild(extjs);
-        var js = document.createElement("script");
-        js.src = "portal.js?v="+new Date().getTime();
-        document.body.appendChild(js);
+        _load_js("https://cdn.jsdelivr.net/g/jquery@2.1.1,bootstrap@3.3.7");
+        _load_js("portal.js?v="+new Date().getTime());
       }
       
       function jQueryOnLoad(){
@@ -331,6 +335,9 @@
             zoom();
             //wekan();
           });
+
+          _load_js("https://zammad.bewegung.jetzt/assets/form/form.js",
+                 "zammad_form_script").addEventListener('load', setupSupportButton);
       };
       if (window.addEventListener) window.addEventListener("DOMContentLoaded", domContentLoaded, false);
       else if (window.attachEvent) window.attachEvent("onDOMContentLoaded", domContentLoaded);
