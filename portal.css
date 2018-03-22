@@ -3,6 +3,8 @@ body {
   font-family:Rubik,sans-serif;
   font-style: normal;
   font-weight:400;
+  min-height: 100vh;
+  padding-bottom: 3em;
 }
 
 a:hover { text-decoration: none; }
@@ -77,3 +79,10 @@ li > ul {
   margin-bottom: 0;
 }
 
+
+#btnSupport {
+  position: fixed;
+  bottom: 0;
+  right: 3px;
+  border-radius: 0;
+}

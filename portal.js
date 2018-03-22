@@ -296,3 +296,14 @@ function wekan() {
     li.appendChild(ul);
   }
 }
+
+function setupSupportButton() {
+  $('#btnSupport').ZammadForm({
+    messageTitle: 'IT-Support Anfrage',
+    messageSubmit: 'anfragen',
+    messageThankYou: 'Vielen Dank für Ihre Anfrage (#%s). Wir melden uns umgehend!',
+    showTitle: true,
+    modal: true,
+    attachmentSupport: true
+  });
+}
