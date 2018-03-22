@@ -296,3 +296,46 @@ function wekan() {
     li.appendChild(ul);
   }
 }
+
+function setupSupportButton() {
+  $('#btnSupport').ZammadForm({
+    messageTitle: 'IT-Support Anfrage',
+    messageSubmit: 'anfragen',
+    messageThankYou: 'Vielen Dank für Ihre Anfrage (#%s). Wir melden uns umgehend!',
+    showTitle: true,
+    modal: true,
+    attachmentSupport: true
+  });
+}
+
+function collapsePanels() {
+  if (jQuery(window).width() < 768) {  
+      jQuery('.panel-collapse').removeClass('in');
+      jQuery('.collapsable').addClass('collapsed');
+  } else {
+      if (getCookie("hideInfo") != "") {
+          jQuery("#info").removeClass("in");
+          jQuery("#ainfo").addClass("collapsed");
+      }
+      if (getCookie("hideMp") != "") {
+          jQuery("#mp").removeClass("in");
+          jQuery("#amp").addClass("collapsed");
+      }
+      if (getCookie("hideInitiativen") != "") {
+          jQuery("#initiativen").removeClass("in");
+          jQuery("#ainitiativen").addClass("collapsed");
+      }
+      if (getCookie("showTools") != "") {
+          jQuery("#tools").addClass("in");
+          jQuery("#atools").removeClass("collapsed");
+      }
+      if (getCookie("showMgmt") != "") {
+          jQuery("#mgmt").addClass("in");
+          jQuery("#amgmt").removeClass("collapsed");
+      }
+      if (getCookie("showIt") != "") {
+          jQuery("#it").addClass("in");
+          jQuery("#ait").removeClass("collapsed");
+      }
+  }
+}

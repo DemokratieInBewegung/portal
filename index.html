@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/g/bootstrap@3.3.7(css/bootstrap.min.css)">
   <link rel='stylesheet' href="portal.css" type="text/css"/>
   <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Rubik%3Aregular%2Citalicver=4.8.5" type="text/css"/>
-  <!-- <script src="https://portal.bewegung.jetzt/cookieconsent/cookieconsent.js"></script> -->
+  <!-- <script id="cookieconsent" src="https://portal.bewegung.jetzt/cookieconsent/cookieconsent.js"></script> -->
   	
 </head>
 <body>
@@ -279,62 +279,37 @@
                     </div>
                 </div>
             </div>
+            <button id="btnSupport" style="float: right; margin-bottom:5px;" class="btn btn-lg btn-info">IT-Support kon­tak­tie­ren</button>
         </div>
         
       </div>
     </div>
+    
     <script>
-      function domContentLoaded() {
-        var extjs = document.createElement("script");
-        extjs.src = "https://cdn.jsdelivr.net/g/jquery@2.1.1,bootstrap@3.3.7";
-        document.body.appendChild(extjs);
-        var js = document.createElement("script");
-        js.src = "portal.js?v="+new Date().getTime();
-        document.body.appendChild(js);
+      function _load_js(path, id) {
+        var elem = document.createElement("script");
+        elem.src = path;
+        elem.id = id;
+        document.body.appendChild(elem);
+        return elem;
       }
       
       function jQueryOnLoad(){
-          if (jQuery(window).width() < 768){  
-              jQuery('.panel-collapse').removeClass('in');
-              jQuery('.collapsable').addClass('collapsed');
-          } else {
-              if (getCookie("hideInfo") != "") {
-                  jQuery("#info").removeClass("in");
-                  jQuery("#ainfo").addClass("collapsed");
-              }
-              if (getCookie("hideMp") != "") {
-                  jQuery("#mp").removeClass("in");
-                  jQuery("#amp").addClass("collapsed");
-              }
-              if (getCookie("hideInitiativen") != "") {
-                  jQuery("#initiativen").removeClass("in");
-                  jQuery("#ainitiativen").addClass("collapsed");
-              }
-              if (getCookie("showTools") != "") {
-                  jQuery("#tools").addClass("in");
-                  jQuery("#atools").removeClass("collapsed");
-              }
-              if (getCookie("showMgmt") != "") {
-                  jQuery("#mgmt").addClass("in");
-                  jQuery("#amgmt").removeClass("collapsed");
-              }
-              if (getCookie("showIt") != "") {
-                  jQuery("#it").addClass("in");
-                  jQuery("#ait").removeClass("collapsed");
-              }
-          }
-          cachetStatus();
-          appeal();
-          plenum();
-          holaSpirit();
-          getMPUserInfoAndDo(function() {
-            zoom();
-            //wekan();
+          _load_js("https://cdn.jsdelivr.net/g/jquery@2.1.1,bootstrap@3.3.7").addEventListener('load',function() {
+              _load_js("portal.js?v="+new Date().getTime()).addEventListener('load',function() {
+                  _load_js("https://zammad.bewegung.jetzt/assets/form/form.js","zammad_form_script").addEventListener('load', setupSupportButton);
+                  collapsePanels();
+                  cachetStatus();
+                  appeal();
+                  plenum();
+                  holaSpirit();
+                  getMPUserInfoAndDo(function() {
+                      zoom();
+                      //wekan();
+                  });
+              });
           });
       };
-      if (window.addEventListener) window.addEventListener("DOMContentLoaded", domContentLoaded, false);
-      else if (window.attachEvent) window.attachEvent("onDOMContentLoaded", domContentLoaded);
-      else window.onDOMContentLoaded = domContentLoaded;
       
       if (window.addEventListener) window.addEventListener("load", jQueryOnLoad, false);
       else if (window.attachEvent) window.attachEvent("onload", jQueryOnLoad);
