@@ -44,14 +44,24 @@ function appeal() {
 document.getElementById("support").addEventListener("click", function(){
     setCookie('supportlastvisit',getCookie('support'));
     document.getElementById('s').innerHTML = 'sucht Unterstützung (0)';
+    setTimeout(function() {
+       document.getElementById('support').href = 'https://abstimmen.bewegung.jetzt/?f=s';
+    }, 100);
 });
 document.getElementById("discuss").addEventListener("click", function(){
     setCookie('discusslastvisit',getCookie('discuss'));
     document.getElementById('d').innerHTML = 'in Diskussion (0)';
+    setTimeout(function() {
+       document.getElementById('discuss').href = 'https://abstimmen.bewegung.jetzt/?f=d';
+    }, 100);
 });
 document.getElementById("vote").addEventListener("click", function(){
     setCookie('votelastvisit',getCookie('vote'));
     document.getElementById('v').innerHTML = 'Abstimmung (0)';
+    setTimeout(function() {
+       document.getElementById('vote').href = 'https://abstimmen.bewegung.jetzt/?f=v';
+    }, 100);
+    
 });
 
 function plenum() {
@@ -75,7 +85,9 @@ function plenum() {
     },
     success: function(answer) {
         if (answer != null && answer.content != null && answer.content.initiatives != null) {
-            document.getElementById('s').innerHTML = "sucht Unterstützung ("+getInitiatives("support",answer.content.initiatives)+")";
+            var ic = getInitiatives("support",answer.content.initiatives);
+            document.getElementById('s').innerHTML = "sucht Unterstützung ("+ic[1]+")";
+            if (ic[1] > 0) document.getElementById('support').href = "https://abstimmen.bewegung.jetzt/?f=s#init-card-"+ic[0];
         }
     }
   });
@@ -90,10 +102,10 @@ function plenum() {
         
     },
     success: function(answer) {
-        if (answer != null) {
-            if (answer != null && answer.content != null && answer.content.initiatives != null) {
-                document.getElementById('d').innerHTML = "in Diskussion ("+getInitiatives("discuss",answer.content.initiatives)+")";
-            }
+        if (answer != null && answer.content != null && answer.content.initiatives != null) {
+            var ic = getInitiatives("discuss",answer.content.initiatives);
+            document.getElementById('d').innerHTML = "in Diskussion ("+ic[1]+")";
+            if (ic[1] > 0) document.getElementById('discuss').href = "https://abstimmen.bewegung.jetzt/?f=d#init-card-"+ic[0];
         }
     }
   });
@@ -108,10 +120,10 @@ function plenum() {
         
     },
     success: function(answer) {
-        if (answer != null) {
-            if (answer != null && answer.content != null && answer.content.initiatives != null) {
-                document.getElementById('v').innerHTML = "Abstimmung ("+getInitiatives("vote",answer.content.initiatives)+")";
-            }
+        if (answer != null && answer.content != null && answer.content.initiatives != null) {
+            var ic = getInitiatives("vote",answer.content.initiatives);
+            document.getElementById('v').innerHTML = "Abstimmung ("+ic[1]+")";
+            if (ic[1] > 0) document.getElementById('vote').href = "https://abstimmen.bewegung.jetzt/?f=v#init-card-"+ic[0];
         }
     }
   });
@@ -120,16 +132,20 @@ function plenum() {
 function getInitiatives(status,arr) {
     var x;
     var id;
+    var firstid = 0;
     var newids = 0;
     var c = ",";
     var clast = getCookie(status+"lastvisit");
     for (x = 0; x < arr.length; x++) {
         id = arr[x].id;
         c += id + ",";
-        if (clast.indexOf(","+id+",") < 0) newids++;
+        if (clast.indexOf(","+id+",") < 0) {
+            if (newids == 0) firstid = id;
+            newids++;
+        }
     }
     setCookie(status,c);
-    return newids;
+    return [firstid,newids];
 }
 
 

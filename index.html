@@ -14,7 +14,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/g/bootstrap@3.3.7(css/bootstrap.min.css)">
   <link rel='stylesheet' href="portal.css" type="text/css"/>
   <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Rubik%3Aregular%2Citalicver=4.8.5" type="text/css"/>
-  <!-- <script id="cookieconsent" src="https://portal.bewegung.jetzt/cookieconsent/cookieconsent.js"></script> -->
   	
 </head>
 <body>
@@ -96,7 +95,7 @@
       </div>
     </div>
     
-    <div style="font-size: 20px;height:50px;padding:10px;color:white;background-image:linear-gradient(90deg, #274f9e, #eb5c4a);">DEMOKRATIE IN BEWEGUNG - Portal<a style="float:right" class="btn btn-default btn-sm" href="#feedback" data-toggle="modal">Info/Kontakt</a></div>
+    <div style="font-size: 20px;height:50px;padding:10px;color:white;background-image:linear-gradient(90deg, #274f9e, #eb5c4a);text-indent:5px;">DEMOKRATIE IN BEWEGUNG - Portal<a style="float:right;margin-bottom:10px;margin-right:5px;text-indent:0px;" class="btn btn-default btn-sm" href="#feedback" data-toggle="modal">Info/Kontakt</a></div>
     <div class="container-fluid" style="padding-top:14px;">
       <div class="row">
         <div class="col-xs-12 col-sm-4">
@@ -296,6 +295,7 @@
       
       function jQueryOnLoad(){
           _load_js("https://cdn.jsdelivr.net/g/jquery@2.1.1,bootstrap@3.3.7").addEventListener('load',function() {
+              //_load_js("https://bewegung.jetzt/cookieconsent/cookieconsent.js","cookieconsent");
               _load_js("portal.js?v="+new Date().getTime()).addEventListener('load',function() {
                   _load_js("https://zammad.bewegung.jetzt/assets/form/form.js","zammad_form_script").addEventListener('load', setupSupportButton);
                   collapsePanels();
@@ -311,9 +311,7 @@
           });
       };
       
-      if (window.addEventListener) window.addEventListener("load", jQueryOnLoad, false);
-      else if (window.attachEvent) window.attachEvent("onload", jQueryOnLoad);
-      else window.onload = jQueryOnLoad;
+      window.addEventListener("load", jQueryOnLoad, false);
     </script>
 					
 </body>
