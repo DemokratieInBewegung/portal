@@ -152,7 +152,7 @@
                                         <li><a target="_blank" href="https://marktplatz.bewegung.jetzt/faq">Verhaltenskodex im Forum</a></li>
                                     </ul>
                                 </li>
-                                <li><a target="_blank" href="https://bewegung.jetzt/in-deiner-naehe/"><i class="fa fa-calendar" aria-hidden="true"></i> Termine für Stammtische u.a.</a></li>
+                                <li><a target="_blank" href="https://bewegung.jetzt/in-deiner-naehe/"><i class="fa fa-calendar" aria-hidden="true"></i> Termine für DiB-Tische u.a.</a></li>
                                 <li><a target="_blank" href="https://marktplatz.bewegung.jetzt/c/initiativen"><i class="fa fa-th" aria-hidden="true"></i> Schnelleinstieg: Idee für neue Initiative einbringen</a></li>
                             </ul>				
                         </div>
@@ -295,7 +295,7 @@
       
       function jQueryOnLoad(){
           _load_js("https://cdn.jsdelivr.net/g/jquery@2.1.1,bootstrap@3.3.7").addEventListener('load',function() {
-              //_load_js("https://bewegung.jetzt/cookieconsent/cookieconsent.js","cookieconsent");
+              _load_js("https://bewegung.jetzt/wp-content/uploads/2018/04/cookieconsent.js","cookieconsent");
               _load_js("portal.js?v="+new Date().getTime()).addEventListener('load',function() {
                   _load_js("https://zammad.bewegung.jetzt/assets/form/form.js","zammad_form_script").addEventListener('load', setupSupportButton);
                   collapsePanels();
