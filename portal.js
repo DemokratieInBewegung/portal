@@ -17,7 +17,7 @@ function cachetStatus() {
 
 function appeal() {
   $.ajax({
-    url: "https://marktplatz.bewegung.jetzt/search?q=tags%3Aaufruf%20%23informationen-und-aktuelles%20order%3Alatest_topic",
+    url: "https://marktplatz.bewegung.jetzt/search?q=tags%3Aaufruf%20category%3A13%20order%3Alatest_topic",
     beforeSend: function(xhr){
         xhr.setRequestHeader('Accept', 'application/json');
     },
@@ -26,7 +26,7 @@ function appeal() {
     },
     success: function(answer) {
         if (answer != null) {
-            if (answer.topics != null && answer.topics.length >= 0) {
+            if (answer.topics != null && answer.topics.length > 0) {
                 
                 var a = document.createElement("a");
                 a.href = "https://marktplatz.bewegung.jetzt/t/appeal/"+answer.topics[0].id;
@@ -35,6 +35,48 @@ function appeal() {
                 document.getElementById('appeal').appendChild(a);
             } else {
                 document.getElementById('appeal').innerHTML = "keine";
+            }
+        }
+    }
+  });
+}
+
+function gesuche() {
+  $.ajax({
+    url: "https://marktplatz.bewegung.jetzt/search?q=category%3A94%20after%3A2017-10-10%20status%3Aopen%20order%3Alatest_topic",
+    beforeSend: function(xhr){
+        xhr.setRequestHeader('Accept', 'application/json');
+    },
+    error: function(answer) {
+        document.getElementById('gesuche').innerHTML = "Fehler bei Abruf";
+    },
+    success: function(answer) {
+        if (answer != null) {
+            if (answer.topics != null && answer.topics.length > 0) {
+                var a = document.createElement("a");
+                a.href = "https://marktplatz.bewegung.jetzt/t/gesuche/"+answer.topics[0].id;
+                a.target = "_blank";
+                a.innerHTML = answer.topics[0].title;
+                document.getElementById('gesuche').appendChild(a);
+                if (answer.topics.length >= 2) {
+                    var li = document.createElement("li");
+                    document.getElementById('gesuche').parentElement.appendChild(li);
+                    if (answer.topics.length == 2) {
+                        a = document.createElement("a");
+                        a.href = "https://marktplatz.bewegung.jetzt/t/gesuche/"+answer.topics[1].id;
+                        a.target = "_blank";
+                        a.innerHTML = answer.topics[1].title;
+                        li.appendChild(a);
+                    } else {
+                        a = document.createElement("a");
+                        a.href = "https://marktplatz.bewegung.jetzt/c/informationen-und-aktuelles/wir-suchen";
+                        a.target = "_blank";
+                        a.innerHTML = answer.topics.length-1 + " weitere";
+                        li.appendChild(a);
+                    }
+                }
+            } else {
+                document.getElementById('gesuche').innerHTML = "aktuell kein Gesuche";
             }
         }
     }
