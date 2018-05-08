@@ -233,13 +233,14 @@ function holaSpirit() {
                 if (m != null && m.data != null && m.data.length > 0) {
                     members = m.data;
                     var myMap = new Map();
-                    var orga = "<strong>aus HolaSpirit:</strong><br>";
+                    var orga = "<strong>Daten aus HolaSpirit:</strong><br><br><table><tr><th>Kreis</th><th>Ansprechpartner (MP-Benutzername)</th></tr>";
                     for (x = 0; x < members.length; x++) {
-                        myMap.set(members[x].id,members[x].displayName);
+                        myMap.set(members[x].id,members[x].displayName+((members[x].customFields.marktplatzNutzername && members[x].customFields.marktplatzNutzername.value)?" (@"+members[x].customFields.marktplatzNutzername.value+")":""));
                     }
                     for (x = 0; x < roles.length; x++) {
-                        if (roles[x].leadLinkMember != null) orga += roles[x].name + ": " + myMap.get(roles[x].leadLinkMember) + "<br>";
+                        if (roles[x].leadLinkMember != null) orga += "<tr><td>"+roles[x].name + ":&nbsp;</td><td>" + myMap.get(roles[x].leadLinkMember) + "</td></tr>";
                     }
+                    orga += "</table>";
                     document.getElementById('contactsbody').innerHTML = orga;
                 }
             }
