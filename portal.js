@@ -1,4 +1,14 @@
 var userGroups = ",";
+var cookieConsentDismissed = false;
+
+function isCookieConsentDismissed() {
+    if (cookieConsentDismissed) return true;
+    if (getCookie('cookieconsent_status') == 'dismiss') {
+        cookieConsentDismissed = true;
+        return true;
+    }
+    return false;
+}
 
 function cachetStatus() {
   $.ajax({
@@ -192,10 +202,12 @@ function getInitiatives(status,arr) {
 
 
 function setCookie(cname, cvalue) {
-    var d = new Date();
-    d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
-    var expires = "expires="+d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    if (isCookieConsentDismissed()) {
+        var d = new Date();
+        d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+        var expires = "expires="+d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
 }
 
 function getCookie(cname) {
