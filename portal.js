@@ -1,5 +1,6 @@
 var userGroups = ",";
 var cookieConsentDismissed = false;
+var statusMap = new Map();
 
 function isCookieConsentDismissed() {
     if (cookieConsentDismissed) return true;
@@ -94,21 +95,21 @@ function gesuche() {
 }
 
 document.getElementById("support").addEventListener("click", function(){
-    setCookie('supportlastvisit',getCookie('support'));
+    setCookie('supportlastvisit',statusMap.get('support'));
     document.getElementById('s').innerHTML = 'sucht Unterstützung (0)';
     setTimeout(function() {
        document.getElementById('support').href = 'https://abstimmen.bewegung.jetzt/?f=s';
     }, 100);
 });
 document.getElementById("discuss").addEventListener("click", function(){
-    setCookie('discusslastvisit',getCookie('discuss'));
+    setCookie('discusslastvisit',statusMap.get('discuss'));
     document.getElementById('d').innerHTML = 'in Diskussion (0)';
     setTimeout(function() {
        document.getElementById('discuss').href = 'https://abstimmen.bewegung.jetzt/?f=d';
     }, 100);
 });
 document.getElementById("vote").addEventListener("click", function(){
-    setCookie('votelastvisit',getCookie('vote'));
+    setCookie('votelastvisit',statusMap.get('vote'));
     document.getElementById('v').innerHTML = 'Abstimmung (0)';
     setTimeout(function() {
        document.getElementById('vote').href = 'https://abstimmen.bewegung.jetzt/?f=v';
@@ -196,7 +197,7 @@ function getInitiatives(status,arr) {
             newids++;
         }
     }
-    setCookie(status,c);
+    statusMap.set(status,c);
     return [firstid,newids];
 }
 
