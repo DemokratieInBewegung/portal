@@ -94,21 +94,21 @@ function gesuche() {
   });
 }
 
-document.getElementById("support").addEventListener("click", function(){
+document.getElementById("support").addEventListener("mousedown", function(){
     setCookie('supportlastvisit',statusMap.get('support'));
     document.getElementById('s').innerHTML = 'sucht Unterstützung (0)';
     setTimeout(function() {
        document.getElementById('support').href = 'https://abstimmen.bewegung.jetzt/?f=s';
     }, 100);
 });
-document.getElementById("discuss").addEventListener("click", function(){
+document.getElementById("discuss").addEventListener("mousedown", function(){
     setCookie('discusslastvisit',statusMap.get('discuss'));
     document.getElementById('d').innerHTML = 'in Diskussion (0)';
     setTimeout(function() {
        document.getElementById('discuss').href = 'https://abstimmen.bewegung.jetzt/?f=d';
     }, 100);
 });
-document.getElementById("vote").addEventListener("click", function(){
+document.getElementById("vote").addEventListener("mousedown", function(){
     setCookie('votelastvisit',statusMap.get('vote'));
     document.getElementById('v').innerHTML = 'Abstimmung (0)';
     setTimeout(function() {
