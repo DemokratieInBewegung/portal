@@ -10,10 +10,10 @@
   <link rel="apple-touch-icon-precomposed" href="icons/logo.png" />
   <meta name="msapplication-TileImage" content="icons/thumb.png" />
   
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/g/bootstrap@3.3.7(css/bootstrap.min.css)">
+  <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="Bootstrap3.3.7.min.css" type="text/css">
   <link rel='stylesheet' href="portal.css" type="text/css"/>
-  <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Rubik%3Aregular%2Citalicver=4.8.5" type="text/css"/>
+  <link rel='stylesheet' href="fonts/Rubik.css" type="text/css"/>
   <link rel="stylesheet" href="https://bewegung.jetzt/cookieconsent/css" type="text/css"/>
   	
 </head>
@@ -299,7 +299,7 @@
       }
       
       function jQueryOnLoad(){
-          _load_js("https://cdn.jsdelivr.net/g/jquery@2.1.1,bootstrap@3.3.7").addEventListener('load',function() {
+          _load_js("jQuery2.1.1+Bootstrap3.3.7.js").addEventListener('load',function() {
               _load_js("portal.js?v="+new Date().getTime()).addEventListener('load',function() {
                   _load_js("https://zammad.bewegung.jetzt/assets/form/form.js","zammad_form_script").addEventListener('load', setupSupportButton);
                   collapsePanels();
