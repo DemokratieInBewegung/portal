@@ -67,7 +67,7 @@ function gesuche() {
                 var a = document.createElement("a");
                 a.href = "https://marktplatz.bewegung.jetzt/t/gesuche/"+answer.topics[0].id;
                 a.target = "_blank";
-                a.innerHTML = answer.topics[0].title;
+                a.innerHTML = answer.topics[0].title.replace(/:[a-z_]*:/g,'');
                 document.getElementById('gesuche').appendChild(a);
                 if (answer.topics.length >= 2) {
                     var li = document.createElement("li");
@@ -76,7 +76,7 @@ function gesuche() {
                         a = document.createElement("a");
                         a.href = "https://marktplatz.bewegung.jetzt/t/gesuche/"+answer.topics[1].id;
                         a.target = "_blank";
-                        a.innerHTML = answer.topics[1].title;
+                        a.innerHTML = answer.topics[1].title.replace(/:[a-z_]*:/g,'');
                         li.appendChild(a);
                     } else {
                         a = document.createElement("a");
