@@ -45,7 +45,39 @@ function appeal() {
                 a.innerHTML = answer.topics[0].title;// oder fancy_title oder slug ???
                 document.getElementById('appeal').appendChild(a);
             } else {
-                document.getElementById('appeal').innerHTML = "keine";
+                $.ajax({
+                    url: "https://abstimmen.bewegung.jetzt/?f=v",
+                    headers: {'X-Requested-With': 'XMLHttpRequest'},
+                    beforeSend: function(xhr){
+                        xhr.setRequestHeader('Accept', 'application/json');
+                    },
+                    error: function(answer) {
+                        document.getElementById('appeal').innerHTML = "keine";
+                    },
+                    success: function(answer) {
+                        if (answer != null && answer.content != null && answer.content.initiatives != null) {
+                            var x;
+                            var id = 0;
+                            for (x = 0; x < answer.content.initiatives.length; x++) {
+                                if (answer.content.initiatives[x].einordnung == "plenumsabwaegung") {
+                                    id = answer.content.initiatives[x].id;
+                                    break;
+                                }
+                            }
+                            if (id > 0) {
+                                var a = document.createElement("a");
+                                a.href = "https://abstimmen.bewegung.jetzt/?f=v#init-card-"+id;
+                                a.target = "_blank";
+                                a.innerHTML = "Plenumsabwägung";
+                                document.getElementById('appeal').appendChild(a);
+                            } else {
+                                document.getElementById('appeal').innerHTML = "keine";
+                            }
+                        } else {
+                            document.getElementById('appeal').innerHTML = "keine";
+                        }
+                    }
+                });
             }
         }
     }
