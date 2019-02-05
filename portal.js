@@ -11,21 +11,6 @@ function isCookieConsentDismissed() {
     return false;
 }
 
-function cachetStatus() {
-  $.ajax({
-    url: "https://status.bewegung.jetzt/api/v1/status",
-    success: function(status) {
-        if (status != null) {
-            if (status.data.indexOf("Alle Systeme funktionieren") >= 0) {
-                $('#cachet').attr("src","icons/cachet-green.png");
-            } else {
-                $('#cachet').attr("src","icons/cachet-red.png");
-            }
-        }
-    }
-  });
-}
-
 function appeal() {
   $.ajax({
     url: "https://marktplatz.bewegung.jetzt/search?q=tags%3Aaufruf%20category%3A13%20order%3Alatest_topic",
