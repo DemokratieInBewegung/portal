@@ -402,17 +402,17 @@ function collapsePanels() {
       jQuery('.panel-collapse').removeClass('in');
       jQuery('.collapsable').addClass('collapsed');
   } else {
-      if (getCookie("hideInfo") != "") {
-          jQuery("#info").removeClass("in");
-          jQuery("#ainfo").addClass("collapsed");
+      if (getCookie("showInfo") != "") {
+          jQuery("#info").addClass("in");
+          jQuery("#ainfo").removeClass("collapsed");
       }
-      if (getCookie("hideMp") != "") {
-          jQuery("#mp").removeClass("in");
-          jQuery("#amp").addClass("collapsed");
+      if (getCookie("showMp") != "") {
+          jQuery("#mp").addClass("in");
+          jQuery("#amp").removeClass("collapsed");
       }
-      if (getCookie("hideInitiativen") != "") {
-          jQuery("#initiativen").removeClass("in");
-          jQuery("#ainitiativen").addClass("collapsed");
+      if (getCookie("showInitiativen") != "") {
+          jQuery("#initiativen").addClass("in");
+          jQuery("#ainitiativen").removeClass("collapsed");
       }
       if (getCookie("showTools") != "") {
           jQuery("#tools").addClass("in");

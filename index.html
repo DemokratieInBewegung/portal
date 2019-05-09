@@ -103,10 +103,10 @@
                 <div class="panel">
                     <div class="panel-heading">
                         <h5 class="panel-title">
-                            <a id="ainfo" class="collapsable" data-toggle="collapse" href="#info" onclick="if ($(this).hasClass('collapsed')) setCookie('hideInfo',''); else setCookie('hideInfo','true');"><i class="fa fa-info-circle" aria-hidden="true"></i> Information</a>
+                            <a id="ainfo" class="collapsable collapsed" data-toggle="collapse" href="#info" onclick="if ($(this).hasClass('collapsed')) setCookie('showInfo','true'); else setCookie('showInfo','');"><i class="fa fa-info-circle" aria-hidden="true"></i> Information</a>
                         </h5>
                     </div>
-                    <div id="info" class="panel-collapse collapse in">
+                    <div id="info" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="pul">
                                 <li><i class="fa fa-bullhorn" aria-hidden="true"></i> aktuelle Aktionen:
@@ -143,10 +143,10 @@
                 <div class="panel">
                     <div class="panel-heading">
                         <h5 class="panel-title">
-                            <a id="amp" class="collapsable" data-toggle="collapse" href="#mp" onclick="if ($(this).hasClass('collapsed')) setCookie('hideMp',''); else setCookie('hideMp','true');"><i class="fa fa-comments" aria-hidden="true"></i> Diskussion / Austausch</a>
+                            <a id="amp" class="collapsable collapsed" data-toggle="collapse" href="#mp" onclick="if ($(this).hasClass('collapsed')) setCookie('showMp','true'); else setCookie('showMp','');"><i class="fa fa-comments" aria-hidden="true"></i> Diskussion / Austausch</a>
                         </h5>
                     </div>
-                    <div id="mp" class="panel-collapse collapse in">
+                    <div id="mp" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="pul">
                                 <li><a target="_blank" href="https://marktplatz.bewegung.jetzt"><img width="20px" src="icons/mp.png" alt="MP"/> Marktplatz der Ideen (MP)</a></li>
@@ -171,10 +171,10 @@
                 <div class="panel">
                     <div class="panel-heading">
                         <h5 class="panel-title">
-                            <a id="ainitiativen" class="collapsable" data-toggle="collapse" href="#initiativen" onclick="if ($(this).hasClass('collapsed')) setCookie('hideInitiativen',''); else setCookie('hideInitiativen','true');"><i class="fa fa-hand-paper-o" aria-hidden="true"></i> Abstimmen / Initiativen</a>
+                            <a id="ainitiativen" class="collapsable collapsed" data-toggle="collapse" href="#initiativen" onclick="if ($(this).hasClass('collapsed')) setCookie('showInitiativen','true'); else setCookie('showInitiativen','');"><i class="fa fa-hand-paper-o" aria-hidden="true"></i> Abstimmen / Initiativen</a>
                         </h5>
                     </div>
-                    <div id="initiativen" class="panel-collapse collapse in">
+                    <div id="initiativen" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="pul">
                                 <li><a target="_blank" href="https://abstimmen.bewegung.jetzt"><img width="20px" src="icons/plenum.png" alt="Plenum"/> Plenum (Alle Initiativen)</a></li>
