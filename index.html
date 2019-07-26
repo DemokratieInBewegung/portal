@@ -80,6 +80,7 @@
     </div>
     
     <!-- Modal contacts-->
+    <!--
     <div id="contacts" class="modal fade" role="dialog">
       <div class="modal-dialog">
     
@@ -94,6 +95,7 @@
     
       </div>
     </div>
+    -->
     
     <div style="font-size: 20px;height:50px;padding:10px;color:white;background-image:linear-gradient(90deg, #274f9e, #eb5c4a);text-indent:5px;">DEMOKRATIE IN BEWEGUNG - Portal<a style="float:right;margin-bottom:10px;margin-right:5px;text-indent:0px;" class="btn btn-default btn-sm" href="#feedback" data-toggle="modal">Info/Kontakt</a></div>
     <div class="container-fluid" style="padding-top:14px;">
@@ -205,7 +207,8 @@
                     <div id="tools" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="pul">
-                                <li><a href="#contacts" data-toggle="modal"><i class="fa fa-address-book" aria-hidden="true"></i> Ansprechpartner Überblick</a></li>
+                                <!--<li><a href="#contacts" data-toggle="modal"><i class="fa fa-address-book" aria-hidden="true"></i> Ansprechpartner Überblick</a></li>-->
+                                <li><a target="_blank" href="https://wiki.bewegung.jetzt/index.php?title=Die_Teams_im_%C3%9Cberblick"><i class="fa fa-address-book" aria-hidden="true"></i> Ansprechpartner der Teams</a></li>
                                 <li><a target="_blank" href="https://chat.bewegung.jetzt/login"><img width="20px" src="icons/mattermost.png" alt="Mattermost"/> Mattermost (Chat)</a></li>
                                 <li><img width="20px" src="icons/zoom.png" alt="Zoom"/> Zoom (Calls / Video-Chat) Räume:
                                     <ul id="zoom">
@@ -303,7 +306,7 @@
                   appeal();
                   gesuche();
                   plenum();
-                  holaSpirit();
+                  //holaSpirit();
                   getMPUserInfoAndDo(function() {
                       zoom();
                       //wekan();
