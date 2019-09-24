@@ -68,7 +68,7 @@ function appeal() {
     }
   });
 }
-
+/*
 function gesuche() {
   $.ajax({
     url: "https://marktplatz.bewegung.jetzt/search?q=category%3A94%20after%3A2017-10-10%20status%3Aopen%20order%3Alatest_topic",
@@ -110,7 +110,7 @@ function gesuche() {
     }
   });
 }
-
+*/
 document.getElementById("support").addEventListener("mousedown", function(){
     setCookie('supportlastvisit',statusMap.get('support'));
     document.getElementById('s').innerHTML = 'sucht Unterstützung (0)';
