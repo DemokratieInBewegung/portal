@@ -357,10 +357,10 @@ function zoom() {
     
     var li4 = document.createElement("li");
     var a4 = document.createElement("a");
-    a3.href = "https://us02web.zoom.us/j/6970109532?pwd=ZFNlejBTaXFPZFc4cyt6LzVyQWZNQT09";
-    a3.target = "_blank";
+    a4.href = "https://us02web.zoom.us/j/6970109532?pwd=ZFNlejBTaXFPZFc4cyt6LzVyQWZNQT09";
+    a4.target = "_blank";
     var nobr4 = document.createElement("nobr");
-    nobr4.innerHTML = "DiB BW/NRW/BuVo: 612-551-9791";
+    nobr4.innerHTML = "DiB BW/NRW/BuVo: 697-010-9532";
     a4.appendChild(nobr4);
     li4.appendChild(a4);
     var div4 = document.createElement("i");
