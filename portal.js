@@ -321,7 +321,7 @@ function zoom() {
     list.innerHTML="";
     var li1 = document.createElement("li");
     var a1 = document.createElement("a");
-    a1.href = "https://zoom.us/j/5564188890";
+    a1.href = "https://us02web.zoom.us/j/5564188890?pwd=U0tmNitMWENOUHRTZjhpVE9zZDErUT09";
     a1.target = "_blank";
     var nobr1 = document.createElement("nobr");
     nobr1.innerHTML = "DiB1: 556-418-8890";
@@ -333,7 +333,7 @@ function zoom() {
     
     var li2 = document.createElement("li");
     var a2 = document.createElement("a");
-    a2.href = "https://zoom.us/j/9464344297";
+    a2.href = "https://us02web.zoom.us/j/9464344297?pwd=K0N0UXRQc00wbDh4b0kyVWxDRnNSZz09";
     a2.target = "_blank";
     var nobr2 = document.createElement("nobr");
     nobr2.innerHTML = "DiB2: 946-434-4297";
@@ -345,7 +345,7 @@ function zoom() {
     
     var li3 = document.createElement("li");
     var a3 = document.createElement("a");
-    a3.href = "https://zoom.us/j/6125519791";
+    a3.href = "https://us02web.zoom.us/j/6125519791?pwd=aStSNDhnL1VtUTFNVmsvWkJVSVlwZz09";
     a3.target = "_blank";
     var nobr3 = document.createElement("nobr");
     nobr3.innerHTML = "DiB3: 612-551-9791";
@@ -355,9 +355,22 @@ function zoom() {
     div3.innerHTML = " (Teams Bund)";
     li3.appendChild(div3);
     
+    var li4 = document.createElement("li");
+    var a4 = document.createElement("a");
+    a3.href = "https://us02web.zoom.us/j/6970109532?pwd=ZFNlejBTaXFPZFc4cyt6LzVyQWZNQT09";
+    a3.target = "_blank";
+    var nobr4 = document.createElement("nobr");
+    nobr4.innerHTML = "DiB BW/NRW/BuVo: 612-551-9791";
+    a4.appendChild(nobr4);
+    li4.appendChild(a4);
+    var div4 = document.createElement("i");
+    div4.innerHTML = " (BW/NRW/BuVo)";
+    li4.appendChild(div4);
+    
     list.appendChild(li1);
     list.appendChild(li2);
     list.appendChild(li3);
+    list.appendChild(li4);
     
   }
 }
