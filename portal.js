@@ -360,11 +360,11 @@ function zoom() {
     a4.href = "https://us02web.zoom.us/j/6970109532?pwd=ZFNlejBTaXFPZFc4cyt6LzVyQWZNQT09";
     a4.target = "_blank";
     var nobr4 = document.createElement("nobr");
-    nobr4.innerHTML = "DiB BW/NRW/BuVo: 697-010-9532";
+    nobr4.innerHTML = "DiB4: 697-010-9532";
     a4.appendChild(nobr4);
     li4.appendChild(a4);
     var div4 = document.createElement("i");
-    div4.innerHTML = " (BW/NRW/BuVo)";
+    div4.innerHTML = " (Mitgl.+Beweger*innen)";
     li4.appendChild(div4);
     
     list.appendChild(li1);
