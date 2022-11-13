@@ -1,3 +1,4 @@
+dist: jammy
 sudo: false
 addons:
   ssh_known_hosts: nick.bewegung.jetzt
