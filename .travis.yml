@@ -1,7 +1,7 @@
 dist: jammy
 sudo: false
 addons:
-  ssh_known_hosts: iris.bewegung.jetzt
+  ssh_known_hosts: dib.bewegung.jetzt
 
 script:
 - echo "kewl"
@@ -17,7 +17,7 @@ deploy:
   provider: script
   skip_cleanup: true
   script: "rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/ 
-root@iris.bewegung.jetzt:/var/dib/portal/build"
+root@dib.bewegung.jetzt:/var/dib/portal/build"
   on:
     branch: master
     condition: '"$TRAVIS_PULL_REQUEST" = "false"'
