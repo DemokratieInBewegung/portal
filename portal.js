@@ -13,7 +13,7 @@ function isCookieConsentDismissed() {
 
 function appeal() {
   $.ajax({
-    url: "https://marktplatz.bewegung.jetzt/search?q=tags%3Aaufruf%20category%3A13%20order%3Alatest_topic",
+    url: "https://marktplatz.dib.de/search?q=tags%3Aaufruf%20category%3A13%20order%3Alatest_topic",
     beforeSend: function(xhr){
         xhr.setRequestHeader('Accept', 'application/json');
     },
@@ -25,13 +25,13 @@ function appeal() {
             if (answer.topics != null && answer.topics.length > 0) {
                 
                 var a = document.createElement("a");
-                a.href = "https://marktplatz.bewegung.jetzt/t/appeal/"+answer.topics[0].id;
+                a.href = "https://marktplatz.dib.de/t/appeal/"+answer.topics[0].id;
                 a.target = "_blank";
                 a.innerHTML = answer.topics[0].title;// oder fancy_title oder slug ???
                 document.getElementById('appeal').appendChild(a);
             } else {
                 $.ajax({
-                    url: "https://abstimmen.bewegung.jetzt/?f=v",
+                    url: "https://abstimmen.dib.de/?f=v",
                     headers: {'X-Requested-With': 'XMLHttpRequest'},
                     beforeSend: function(xhr){
                         xhr.setRequestHeader('Accept', 'application/json');
@@ -51,7 +51,7 @@ function appeal() {
                             }
                             if (id > 0) {
                                 var a = document.createElement("a");
-                                a.href = "https://abstimmen.bewegung.jetzt/?f=v#init-card-"+id;
+                                a.href = "https://abstimmen.dib.de/?f=v#init-card-"+id;
                                 a.target = "_blank";
                                 a.innerHTML = "Plenumsabwägung";
                                 document.getElementById('appeal').appendChild(a);
@@ -71,7 +71,7 @@ function appeal() {
 /*
 function gesuche() {
   $.ajax({
-    url: "https://marktplatz.bewegung.jetzt/search?q=category%3A94%20after%3A2017-10-10%20status%3Aopen%20order%3Alatest_topic",
+    url: "https://marktplatz.dib.de/search?q=category%3A94%20after%3A2017-10-10%20status%3Aopen%20order%3Alatest_topic",
     beforeSend: function(xhr){
         xhr.setRequestHeader('Accept', 'application/json');
     },
@@ -82,7 +82,7 @@ function gesuche() {
         if (answer != null) {
             if (answer.topics != null && answer.topics.length > 0) {
                 var a = document.createElement("a");
-                a.href = "https://marktplatz.bewegung.jetzt/t/gesuche/"+answer.topics[0].id;
+                a.href = "https://marktplatz.dib.de/t/gesuche/"+answer.topics[0].id;
                 a.target = "_blank";
                 a.innerHTML = answer.topics[0].title.replace(/:[a-z_]*:/g,'');
                 document.getElementById('gesuche').appendChild(a);
@@ -91,13 +91,13 @@ function gesuche() {
                     document.getElementById('gesuche').parentElement.appendChild(li);
                     if (answer.topics.length == 2) {
                         a = document.createElement("a");
-                        a.href = "https://marktplatz.bewegung.jetzt/t/gesuche/"+answer.topics[1].id;
+                        a.href = "https://marktplatz.dib.de/t/gesuche/"+answer.topics[1].id;
                         a.target = "_blank";
                         a.innerHTML = answer.topics[1].title.replace(/:[a-z_]*:/g,'');
                         li.appendChild(a);
                     } else {
                         a = document.createElement("a");
-                        a.href = "https://marktplatz.bewegung.jetzt/c/informationen-und-aktuelles/wir-suchen";
+                        a.href = "https://marktplatz.dib.de/c/informationen-und-aktuelles/wir-suchen";
                         a.target = "_blank";
                         a.innerHTML = answer.topics.length-1 + " weitere";
                         li.appendChild(a);
@@ -115,21 +115,21 @@ document.getElementById("support").addEventListener("mousedown", function(){
     setCookie('supportlastvisit',statusMap.get('support'));
     document.getElementById('s').innerHTML = 'sucht Unterstützung (0)';
     setTimeout(function() {
-       document.getElementById('support').href = 'https://abstimmen.bewegung.jetzt/?f=s';
+       document.getElementById('support').href = 'https://abstimmen.dib.de/?f=s';
     }, 100);
 });
 document.getElementById("discuss").addEventListener("mousedown", function(){
     setCookie('discusslastvisit',statusMap.get('discuss'));
     document.getElementById('d').innerHTML = 'in Diskussion (0)';
     setTimeout(function() {
-       document.getElementById('discuss').href = 'https://abstimmen.bewegung.jetzt/?f=d';
+       document.getElementById('discuss').href = 'https://abstimmen.dib.de/?f=d';
     }, 100);
 });
 document.getElementById("vote").addEventListener("mousedown", function(){
     setCookie('votelastvisit',statusMap.get('vote'));
     document.getElementById('v').innerHTML = 'Abstimmung (0)';
     setTimeout(function() {
-       document.getElementById('vote').href = 'https://abstimmen.bewegung.jetzt/?f=v';
+       document.getElementById('vote').href = 'https://abstimmen.dib.de/?f=v';
     }, 100);
     
 });
@@ -145,7 +145,7 @@ function plenum() {
   }
   */
   $.ajax({
-    url: "https://abstimmen.bewegung.jetzt/?f=s",
+    url: "https://abstimmen.dib.de/?f=s",
     headers: {'X-Requested-With': 'XMLHttpRequest'},
     beforeSend: function(xhr){
         xhr.setRequestHeader('Accept', 'application/json');
@@ -157,13 +157,13 @@ function plenum() {
         if (answer != null && answer.content != null && answer.content.initiatives != null) {
             var ic = getInitiatives("support",answer.content.initiatives);
             document.getElementById('s').innerHTML = "sucht Unterstützung ("+ic[1]+")";
-            if (ic[1] > 0) document.getElementById('support').href = "https://abstimmen.bewegung.jetzt/?f=s#init-card-"+ic[0];
+            if (ic[1] > 0) document.getElementById('support').href = "https://abstimmen.dib.de/?f=s#init-card-"+ic[0];
         }
     }
   });
   
   $.ajax({
-    url: "https://abstimmen.bewegung.jetzt/?f=d",
+    url: "https://abstimmen.dib.de/?f=d",
     headers: {'X-Requested-With': 'XMLHttpRequest'},
     beforeSend: function(xhr){
         xhr.setRequestHeader('Accept', 'application/json');
@@ -175,13 +175,13 @@ function plenum() {
         if (answer != null && answer.content != null && answer.content.initiatives != null) {
             var ic = getInitiatives("discuss",answer.content.initiatives);
             document.getElementById('d').innerHTML = "in Diskussion ("+ic[1]+")";
-            if (ic[1] > 0) document.getElementById('discuss').href = "https://abstimmen.bewegung.jetzt/?f=d#init-card-"+ic[0];
+            if (ic[1] > 0) document.getElementById('discuss').href = "https://abstimmen.dib.de/?f=d#init-card-"+ic[0];
         }
     }
   });
   
   $.ajax({
-    url: "https://abstimmen.bewegung.jetzt/?f=v",
+    url: "https://abstimmen.dib.de/?f=v",
     headers: {'X-Requested-With': 'XMLHttpRequest'},
     beforeSend: function(xhr){
         xhr.setRequestHeader('Accept', 'application/json');
@@ -193,7 +193,7 @@ function plenum() {
         if (answer != null && answer.content != null && answer.content.initiatives != null) {
             var ic = getInitiatives("vote",answer.content.initiatives);
             document.getElementById('v').innerHTML = "Abstimmung ("+ic[1]+")";
-            if (ic[1] > 0) document.getElementById('vote').href = "https://abstimmen.bewegung.jetzt/?f=v#init-card-"+ic[0];
+            if (ic[1] > 0) document.getElementById('vote').href = "https://abstimmen.dib.de/?f=v#init-card-"+ic[0];
         }
     }
   });
@@ -281,7 +281,7 @@ function holaSpirit() {
 
 function getMPUserInfoAndDo(f) {
   $.ajax({
-    url: "https://marktplatz.bewegung.jetzt/session/current.json",
+    url: "https://marktplatz.dib.de/session/current.json",
     xhrFields: {
        withCredentials: true
     },
@@ -292,7 +292,7 @@ function getMPUserInfoAndDo(f) {
         if (session != null && session.current_user != null) {
             var mpUsername = session.current_user.username;
             $.ajax({
-                url: "https://marktplatz.bewegung.jetzt/users/"+mpUsername+".json",
+                url: "https://marktplatz.dib.de/users/"+mpUsername+".json",
                 xhrFields: {
                    withCredentials: true
                 },
@@ -381,14 +381,14 @@ function wekan() {
     var ul = document.createElement("ul");
     var li1 = document.createElement("li");
     var a1 = document.createElement("a");
-    a1.href = "https://wekan.bewegung.jetzt/b/vxYn5NDMsu9iR6Wsp/backoffice-and-tooling";
+    a1.href = "https://wekan.dib.de/b/vxYn5NDMsu9iR6Wsp/backoffice-and-tooling";
     a1.target = "_blank";
     a1.innerHTML = "Backoffice&Tooling";
     li1.appendChild(a1);
     
     var li2 = document.createElement("li");
     var a2 = document.createElement("a");
-    a2.href = "https://wekan.bewegung.jetzt/b/uQJxjrioxz2EG9nLi/initiativ-tool";
+    a2.href = "https://wekan.dib.de/b/uQJxjrioxz2EG9nLi/initiativ-tool";
     a2.target = "_blank";
     a2.innerHTML = "Plenum-Entwicklung";
     li2.appendChild(a2);
